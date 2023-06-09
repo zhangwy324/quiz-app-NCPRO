@@ -1,7 +1,12 @@
 export const questions = [
   {
-    question: "What is the capital city of Australia?",
-    choices: ["Sydney", "Canberra", "Melbourne", "Brisbane"],
+    question: "What is the capital city of Australia? ",
+    choices: [
+      "Sydney Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero vero aspernatur nisi labore. Ea maxime excepturi quibusdam, vitae libero necessitatibus! Molestiae, expedita reiciendis voluptatem doloremque eveniet impedit recusandae voluptatibus et.",
+      "Canberra",
+      "Melbourne",
+      "Brisbane",
+    ],
     answer: "B",
   },
   {
@@ -10,7 +15,7 @@ export const questions = [
     answer: "B",
   },
   {
-    question: "Which artist painted the Mona Lisa?",
+    question: "Which artist painted the Mona Lisa? ",
     choices: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
     answer: "C",
   },
