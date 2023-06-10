@@ -8,6 +8,11 @@ let optA = document.getElementById("optA");
 let optB = document.getElementById("optB");
 let optC = document.getElementById("optC");
 let optD = document.getElementById("optD");
+let answerText = document.getElementById("answer");
+let explanationText = document.getElementById("explanation");
+let contributorText = document.getElementById("contributor");
+const correctAudio = new Audio("./sounds/cheer.wav");
+const wrongAudio = new Audio("./sounds/disappointed.mp3");
 
 // index of current question
 let index = 0;
@@ -23,6 +28,19 @@ function load() {
   optB.innerHTML = "B. " + questions[index].choices[1];
   optC.innerHTML = "C. " + questions[index].choices[2];
   optD.innerHTML = "D. " + questions[index].choices[3];
+  clearInfo();
+}
+
+function clearInfo() {
+  answerText.innerText = "";
+  explanationText.innerText = "";
+  contributorText.innerText = "";
+}
+
+function showInfo() {
+  answerText.innerText = "Correct Answer: " + questions[index].answer;
+  explanationText.innerText = questions[index].explanation;
+  contributorText.innerText = "Contributor: " + questions[index].author;
 }
 
 // next question
@@ -46,10 +64,14 @@ function check(e) {
   if (id[id.length - 1] == questions[index].answer) {
     console.log("correct");
     e.srcElement.style.backgroundColor = "lightgreen";
+    correctAudio.play();
   } else {
     console.log("wrong");
     e.srcElement.style.backgroundColor = "red";
+    window["opt" + questions[index].answer].style.backgroundColor = "lightgreen";
+    wrongAudio.play();
   }
+  showInfo();
 }
 
 // disable options
@@ -68,6 +90,7 @@ function ableOptions() {
 
 // choose an option
 function choose(e) {
+  stopAudios();
   check(e);
   disableOptions();
 }
@@ -82,6 +105,14 @@ function control(e) {
   }
   ableOptions();
 }
+
+function stopAudios() {
+  correctAudio.currentTime = 0;
+  correctAudio.pause();
+  wrongAudio.currentTime = 0;
+  wrongAudio.pause();
+}
+
 load();
 optA.addEventListener("click", choose);
 optB.addEventListener("click", choose);
