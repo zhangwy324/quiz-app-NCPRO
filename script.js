@@ -32,11 +32,13 @@ function load() {
   clearInfo();
 }
 
+// clear answer and explanation
 function clearInfo() {
   answerText.innerText = "";
   explanationText.innerText = "";
 }
 
+// show answer and explanation
 function showInfo() {
   answerText.innerText = "Correct Answer: " + questions[index].answer;
   explanationText.innerText = questions[index].explanation;
@@ -87,6 +89,7 @@ function ableOptions() {
   }
 }
 
+// Event bind to the options
 // choose an option
 function choose(e) {
   stopAudios();
@@ -94,7 +97,7 @@ function choose(e) {
   disableOptions();
 }
 
-// click next button
+// click prev/next button
 function control(e) {
   const id = e.srcElement.id;
   if (id == "prevButton") {
@@ -105,6 +108,7 @@ function control(e) {
   ableOptions();
 }
 
+// stop audio
 function stopAudios() {
   correctAudio.currentTime = 0;
   correctAudio.pause();
@@ -112,6 +116,7 @@ function stopAudios() {
   wrongAudio.pause();
 }
 
+// load first question and bind all events
 load();
 optA.addEventListener("click", choose);
 optB.addEventListener("click", choose);
