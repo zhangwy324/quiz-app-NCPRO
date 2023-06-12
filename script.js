@@ -28,19 +28,18 @@ function load() {
   optB.innerHTML = "B. " + questions[index].choices[1];
   optC.innerHTML = "C. " + questions[index].choices[2];
   optD.innerHTML = "D. " + questions[index].choices[3];
+  contributorText.innerHTML = "Contributor: " + questions[index].author;
   clearInfo();
 }
 
 function clearInfo() {
   answerText.innerText = "";
   explanationText.innerText = "";
-  contributorText.innerText = "";
 }
 
 function showInfo() {
   answerText.innerText = "Correct Answer: " + questions[index].answer;
   explanationText.innerText = questions[index].explanation;
-  contributorText.innerText = "Contributor: " + questions[index].author;
 }
 
 // next question

@@ -27,6 +27,12 @@
   gap: 20px;
 }
 
+.contributor-box {
+  font-size: medium;
+  font-weight: 500;
+  align-self: self-end;
+}
+
 .question-box {
   padding: 10px 20px;
   font-size: xx-large;
