@@ -1,4 +1,4 @@
-import { questions } from "./questions.js";
+import { questions } from "./questions/questions.js";
 
 let ul = document.getElementById("ul");
 let nextButton = document.getElementById("nextButton");
@@ -41,7 +41,7 @@ function clearInfo() {
 // show answer and explanation
 function showInfo() {
   answerText.innerText = "Correct Answer: " + questions[index].answer;
-  explanationText.innerText = questions[index].explanation;
+  explanationText.innerText = questions[index].explanation ? questions[index].explanation : "";
 }
 
 // next question
