@@ -13,6 +13,7 @@ let explanationText = document.getElementById("explanation");
 let contributorText = document.getElementById("contributor");
 let startGameBtn = document.getElementById("startGame");
 let gameContainer = document.getElementById("container");
+let startScreen = document.getElementById("startScreen");
 const correctAudio = new Audio("./sounds/cheer.wav");
 const wrongAudio = new Audio("./sounds/disappointed.mp3");
 
@@ -112,7 +113,7 @@ function control(e) {
 
 function startGame() {
   gameContainer.style.visibility = "visible";
-  startGameBtn.style.visibility = "hidden";
+  startScreen.style.visibility = "hidden";
   load();
 }
 
