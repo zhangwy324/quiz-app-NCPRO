@@ -11,6 +11,8 @@ let optD = document.getElementById("optD");
 let answerText = document.getElementById("answer");
 let explanationText = document.getElementById("explanation");
 let contributorText = document.getElementById("contributor");
+let startGameBtn = document.getElementById("startGame");
+let gameContainer = document.getElementById("container");
 const correctAudio = new Audio("./sounds/cheer.wav");
 const wrongAudio = new Audio("./sounds/disappointed.mp3");
 
@@ -108,6 +110,12 @@ function control(e) {
   ableOptions();
 }
 
+function startGame() {
+  gameContainer.style.visibility = "visible";
+  startGameBtn.style.visibility = "hidden";
+  load();
+}
+
 // stop audio
 function stopAudios() {
   correctAudio.currentTime = 0;
@@ -117,10 +125,10 @@ function stopAudios() {
 }
 
 // load first question and bind all events
-load();
 optA.addEventListener("click", choose);
 optB.addEventListener("click", choose);
 optC.addEventListener("click", choose);
 optD.addEventListener("click", choose);
 nextButton.addEventListener("click", control);
 prevButton.addEventListener("click", control);
+startGameBtn.addEventListener("click", startGame);
